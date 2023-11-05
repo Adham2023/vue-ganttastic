@@ -6,6 +6,13 @@ export type GanttBarObject = {
   ganttBarConfig: {
     id: string
     label?: string
+    // for specific usage
+    crew_members: {
+      _id: string
+      first_name: string
+    }[]
+    flight_routes: string[]
+
     hasHandles?: boolean
     immobile?: boolean
     bundle?: string

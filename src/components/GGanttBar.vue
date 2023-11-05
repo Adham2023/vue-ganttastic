@@ -20,8 +20,16 @@
   >
     <div class="g-gantt-bar-label">
       <slot :bar="bar">
-        <div>
-          {{ barConfig.label || "" }}
+        <div class="g-gantt-bar-label--flight_routes">
+          <div v-for="(rt, index) in barConfig.flight_routes" :key="rt" class="bar-tag-route">
+            {{ rt }} <span v-if="index < barConfig.flight_routes.length - 1">&#8594;</span>
+          </div>
+        </div>
+        <div class="g-gantt-bar-label--crew_members">
+          <div v-for="cr in barConfig.crew_members" :key="cr._id" class="bar-tag-route">
+            {{ cr.first_name }}
+          </div>
+          <!-- {{ barConfig.crew_members.map((cr: any) => cr.first_name).join(",") || "" }} -->
         </div>
       </slot>
     </div>
@@ -117,11 +125,32 @@ onMounted(() => {
 </script>
 
 <style>
+.bar-tag-route {
+  margin-right: 5px;
+  padding: 0 3px 0 3px;
+  display: block;
+  border-radius: 10px;
+  /* background: #000; */
+  /* border: 1px solid lightgray; */
+}
+
+.g-gantt-bar-label--flight_routes,
+.g-gantt-bar-label--crew_members {
+  padding: 3px 0;
+  border-bottom: 1px solid rgb(218, 217, 217);
+  display: flex;
+}
+
+.g-gantt-bar-label--crew_members {
+  border-bottom: none;
+}
+
 .g-gantt-bar {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: cadetblue;
+  /* background: cadetblue; */
+  /* border: 1px solid gray; */
   overflow: hidden;
 }
 
@@ -129,12 +158,15 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: 0 14px 0 14px; /* 14px is the width of the handle */
+  padding: 0 10px 0 10px; /* 14px is the width of the handle */
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: center;
   align-items: center;
 }
 .g-gantt-bar-label > * {
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

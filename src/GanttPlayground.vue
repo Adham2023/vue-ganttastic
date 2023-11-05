@@ -3,7 +3,7 @@
     :chart-start="chartStart"
     :chart-end="chartEnd"
     precision="month"
-    :row-height="40"
+    :row-height="60"
     grid
     width="100%"
     bar-start="beginDate"
@@ -40,6 +40,20 @@ const bars1 = ref<GanttBarObject[]>([
     beginDate: "24.04.2021 13:00",
     endDate: "25.05.2021 19:00",
     ganttBarConfig: {
+      style: {
+        background: "white",
+        boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+        // color: "white",
+        fontSize: "12px",
+        borderRadius: "30px"
+      },
+      flight_routes: ["TAS", "SKD", "TAS"],
+      crew_members: [
+        {
+          _id: "12",
+          first_name: "A"
+        }
+      ],
       id: "8621987329",
       label: "I'm in a bundle",
       bundle: "bundle2"
@@ -47,16 +61,27 @@ const bars1 = ref<GanttBarObject[]>([
   }
 ])
 
-const bars2 = ref([
+const bars2 = ref<GanttBarObject[]>([
   {
     beginDate: "24.04.2021 13:00",
     endDate: "25.05.2021 19:00",
     ganttBarConfig: {
+      flight_routes: ["TAS", "SKD", "TAS"],
+      crew_members: [
+        {
+          _id: "12",
+          first_name: "A"
+        }
+      ],
       id: "1592311887",
       label: "I'm in a bundle",
       bundle: "bundle2",
       style: {
-        background: "magenta"
+        boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+        background: "white",
+        // color: "white",
+        borderRadius: "30px",
+        fontSize: "12px"
       }
     }
   },
@@ -64,11 +89,21 @@ const bars2 = ref([
     beginDate: "01.01.2021 00:00",
     endDate: "01.03.2021 00:00",
     ganttBarConfig: {
+      flight_routes: ["TAS", "SKD", "TAS"],
+      crew_members: [
+        {
+          _id: "12",
+          first_name: "A"
+        }
+      ],
       id: "7716981641",
       label: "Lorem ipsum dolor",
       hasHandles: true,
       style: {
-        background: "#b74b52"
+        boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+        background: "white",
+        // color: "white",
+        fontSize: "12px"
       }
     }
   },
@@ -76,13 +111,22 @@ const bars2 = ref([
     beginDate: "15.06.2021 00:00",
     endDate: "10.07.2021 00:00",
     ganttBarConfig: {
+      flight_routes: ["TAS", "SKD", "TAS"],
+      crew_members: [
+        {
+          _id: "12",
+          first_name: "A"
+        }
+      ],
       id: "9716981641",
       label: "Oh hey",
       style: {
-        background: "#69e064",
-        borderRadius: "15px",
-        color: "blue",
-        fontSize: "10px"
+        boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+        background: "white",
+        // color: "white",
+        borderRadius: "30px",
+        // color: "blue",
+        fontSize: "12px"
       }
     }
   }
@@ -91,16 +135,25 @@ const addBar = () => {
   if (bars1.value.some((bar) => bar.ganttBarConfig.id === "test1")) {
     return
   }
-  const bar = {
+  const bar: GanttBarObject = {
     beginDate: "26.02.2021 00:00",
     endDate: "26.03.2021 02:00",
     ganttBarConfig: {
       id: "test1",
+      flight_routes: ["TAS", "SKD", "TAS"],
+      crew_members: [
+        {
+          _id: "12",
+          first_name: "A"
+        }
+      ],
       hasHandles: true,
       label: "Hello!",
       style: {
-        background: "#5484b7",
-        borderRadius: "20px"
+        boxShadow: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+        // background: "black",
+        // color: "white",
+        borderRadius: "30px"
       }
     }
   }

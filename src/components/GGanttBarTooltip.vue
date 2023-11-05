@@ -10,7 +10,6 @@
           fontFamily: font
         }"
       >
-        <div class="g-gantt-tooltip-color-dot" :style="{ background: dotColor }" />
         <slot :bar="bar" :bar-start="barStartRaw" :bar-end="barEndRaw">
           {{ tooltipContent }}
         </slot>
